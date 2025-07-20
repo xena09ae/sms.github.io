@@ -315,6 +315,10 @@ def lambda_handler(event, context):
         <button id="nextBtn">Next</button>
     </div>
     
+    <div class="slide-number">
+        Slide <span id="currentSlide">1</span>/<span id="totalSlides">10</span>
+    </div>
+    
     <script>
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
