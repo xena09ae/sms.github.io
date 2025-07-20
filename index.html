@@ -154,9 +154,7 @@
             bottom: 2rem;
             left: 2rem;
             color: var(--dark);
-            display: none;
-        }
-        
+            visibility: hidden;        
         .title-slide {
             background: linear-gradient(135deg, var(--twilio-red), var(--aws-orange));
             color: white;
@@ -317,7 +315,7 @@ def lambda_handler(event, context):
     </div>
     
     <div class="slide-number">
-       
+        Slide <span id="currentSlide">1</span>/<span id="totalSlides">10</span>
     </div>
     
     <script>
