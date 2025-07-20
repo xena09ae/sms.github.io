@@ -186,7 +186,8 @@
         <ul>
             <li>Works without internet</li>
             <li>Generates emergency alerts</li>
-            <li>Shares information </li>
+            <li>Shares information</li>
+            <li>Connects NGOs and Critical Response Teams to civilians</li>
         </ul>
     </div>
     
@@ -194,13 +195,24 @@
     <div class="slide">
         <h2>Our Serverless Solution</h2>
         <div class="architecture">
-            <div class="flow-item">User/Application</div>
+            <div class="flow-item">SMS/Phone Application</div>
+            <div class="flow-item">Twilio API</div>
             <div class="flow-item">API Gateway</div>
             <div class="flow-item">AWS Lambda</div>
             <div class="flow-item">Twilio API</div>
-            <div class="flow-item">Recipient's Phone</div>
+            <div class="flow-item">Recipient (Civilian/NGO)</div>
         </div>
-        <p>An easy to manage infrastructure</p>
+        <p>Secure and simple</p>
+    </div>
+
+    <div class="slide">
+        <h2>Ok... But here's the catch!</h2>
+        <div class="tech-stack">
+            <ul><strong>Twilio is not the best provider for Gaza...</strong>and because of this, we might look into Unifonic or other providers</ul>
+            <ul><strong>The capabilities in Gaza are heavily restricted...</strong>and we werent able to get a message out of Gaza, only into it.</ul>
+            <ul><strong>This is a big project and we would love help!</strong>Any NGO, coder, or activist who would like to help us scale this is welcome!</ul>
+            <ul><strong>We don't want this project to die as it's just begun, so it would be awesome to get any followup resources or contacts!</strong></ul>
+        </div>
     </div>
     
     <!-- Slide 4: Tech Stack -->
@@ -219,94 +231,33 @@
                 <h3>API Gateway</h3>
                 <p>REST Endpoint</p>
             </div>
+            <div class="tech-item">
+                <h3>Database</h3>
+                <p>AWS DynamoDB</p>
+            </div>
         </div>
     </div>
     
-    <!-- Slide 5: Code Snippet -->
-    <div class="slide">
-        <h2>Lambda Function Code</h2>
-        <pre><code>import os
-from twilio.rest import Client
-
-def lambda_handler(event, context):
-    # Get credentials from environment
-    account_sid = os.environ['TWILIO_SID']
-    auth_token = os.environ['TWILIO_TOKEN']
-    from_number = os.environ['TWILIO_NUMBER']
     
-    # Send SMS
-    client = Client(account_sid, auth_token)
-    message = client.messages.create(
-        body=event["message"],
-        from_=from_number,
-        to=event["to"]
-    )
-    
-    return {
-        "status": "success",
-        "message_sid": message.sid
-    }</code></pre>
-    </div>
-    
-    <!-- Slide 6: How It Works -->
-    <div class="slide">
-        <h2>Implementation Steps</h2>
-        <ol>
-            <li>Set up Twilio account and get credentials</li>
-            <li>Create Lambda function with Python</li>
-            <li>Configure API Gateway endpoint</li>
-            <li>Deploy and test with cURL/Postman</li>
-        </ol>
-    </div>
-    
-    <!-- Slide 7: Demo -->
-    <div class="slide">
-        <h2>Live Demo</h2>
-        <p>Sending an SMS via API:</p>
-        <pre><code>curl -X POST https://api.example.com/sms \
-  -H "Content-Type: application/json" \
-  -d '{"to": "+1234567890", "message": "Hello!"}'</code></pre>
-        <p>Expected response:</p>
-        <pre><code>{
-  "status": "success",
-  "message_sid": "SM1234567890"
-}</code></pre>
-    </div>
-    
+        
     <!-- Slide 8: Benefits -->
     <div class="slide">
         <h2>Key Benefits</h2>
         <ul>
             <li><strong>Cost-effective:</strong> Pay only for what you use</li>
             <li><strong>Scalable:</strong> Handles traffic spikes automatically</li>
-            <li><strong>Reliable:</strong> AWS infrastructure with 99.95% uptime</li>
+            <li><strong>Reliable:</strong> AWS infrastructure with 99+% uptime</li>
             <li><strong>Secure:</strong> IAM roles and environment variables</li>
         </ul>
     </div>
     
     <!-- Slide 9: Next Steps -->
-    <div class="slide">
-        <h2>Future Enhancements</h2>
-        <div class="tech-stack">
-            <div class="tech-item">
-                <h3>Use store-and-forward </h3>
-                <p>Queue SMS during outages</p>
-            </div>
-            <div class="tech-item">
-                <h3>Analytics</h3>
-                <p>Track delivery metrics</p>
-            </div>
-            <div class="tech-item">
-                <h3>Templates</h3>
-                <p>Pre-approved message templates</p>
-            </div>
-        </div>
-    </div>
+
     
     <!-- Slide 10: Q&A -->
     <div class="slide">
         <h1>Questions?</h1>
-        <p>Contact: The SMS Team</p>
+        <p>Feel free to contact at: +1(630)999-7848</p>
     </div>
     
     <div class="controls">
